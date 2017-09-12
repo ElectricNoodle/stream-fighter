@@ -1,13 +1,13 @@
 /* globals __DEV__ */
 import Phaser from 'phaser'
-import Mushroom from '../sprites/Mushroom'
+import RobPakora from '../sprites/RobPakora'
 
 export default class extends Phaser.State {
   init () {}
   preload () {}
 
   create () {
-    const bannerText = 'Phaser + ES6 + Webpack'
+    const bannerText = 'Stream Fighter'
     let banner = this.add.text(this.world.centerX, this.game.height - 80, bannerText)
     banner.font = 'Bangers'
     banner.padding.set(10, 16)
@@ -16,19 +16,19 @@ export default class extends Phaser.State {
     banner.smoothed = false
     banner.anchor.setTo(0.5)
 
-    this.mushroom = new Mushroom({
+    this.pakora = new RobPakora({
       game: this.game,
       x: this.world.centerX,
       y: this.world.centerY,
-      asset: 'mushroom'
+      asset: 'robpakora'
     })
 
-    this.game.add.existing(this.mushroom)
+    this.game.add.existing(this.pakora)
   }
 
   render () {
     if (__DEV__) {
-      this.game.debug.spriteInfo(this.mushroom, 32, 32)
+      this.game.debug.spriteInfo(this.pakora, 32, 32)
     }
   }
 }
